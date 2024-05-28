@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Heading(){
+export default function Home(){
   return (
     <div>
     <h1>CPRG306: Web Development 2 - Assignments</h1>
