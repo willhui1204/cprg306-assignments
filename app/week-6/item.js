@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import React from "react";
+
 
 const Item = ({ name, quantity, category }) => {
     return (

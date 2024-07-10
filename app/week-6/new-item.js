@@ -1,5 +1,15 @@
 "use client";
+
 import { useState } from "react";
+
+const generateId = (length = 18) => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  };
 
 const NewItem = ({onAddItem}) =>{
     const [name, setName] = useState("");
@@ -9,7 +19,7 @@ const NewItem = ({onAddItem}) =>{
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        const item = {name, quantity, category};
+        const item = {id: generateId(), name, quantity, category};
         onAddItem(item);
 
         setName("");
@@ -18,18 +28,15 @@ const NewItem = ({onAddItem}) =>{
     };
 
     return(
-        <form onSubmit={handleSubmit}>
-            {/* <div>
-                <label>Name</label>
-                <input required type="text" onchange={(event) => setName(event.target.value)} value={name}/>
+        <form onSubmit={handleSubmit} className="p-4 bg-slate-900 text-black rounded mb-6">
+            <div className="mb-6">
+                <input className="w-96 h-10 p-2 rounded text-black" required type="text" onChange={(event) => setName(event.target.value)} value={name} placeholder="Item name"/>                
             </div>
-            <div>
-                <label>Quantity</label>
-                <input required type="number" onchange={(event) => setQuantity(event.target.value)} min="1" max="99"/>
+            <div className="mb-6">
+                <input className="w-96 h-10 p-2 rounded" required type="number" onChange={(event) => setQuantity(event.target.value)} min="1" max="99" value={quantity}/>
             </div>
-            <div>
-                <label>Category</label>
-                <select onchange={(event) => setCategory(event.target.value)} value={category}>
+            <div className="mb-6">
+                <select className="w-96 h-10 p-2 rounded" onChange={(event) => setCategory(event.target.value)} value={category}>
                     <option value="Produce">Produce</option>
                     <option value="Dairy">Dairy</option>
                     <option value="Bakery">Bakery</option>
@@ -43,7 +50,9 @@ const NewItem = ({onAddItem}) =>{
                     <option value="Other">Other</option>
                 </select>
             </div>
-            <button>+</button> */}
+            <div>
+                <button className="w-96 h-10 flex justify-center items-center rounded-md bg-blue-600 hover:bg-blue-500 text-white">+</button>
+            </div>
         </form>
 
     );
