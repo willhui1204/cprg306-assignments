@@ -7,5 +7,5 @@ export default function Page(){
         <main className="flex justify-center">
             <NewItem />
         </main>
-    )
+    );
 }

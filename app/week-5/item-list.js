@@ -19,8 +19,8 @@ const ItemList = () => {
     <div>
       <div>
         <label>Sort by: </label>
-        <button onClick={() => setSortBy("name")}>Name</button>
-        <button onClick={() => setSortBy("category")}>Category</button>
+        <button onClick={() => setSortBy("name")} className={`mr-2 px-4 py-2 ${sortBy === "name" ? "bg-orange-500 text-white" : "bg-orange-700 text-white"}`}>Name</button>
+        <button onClick={() => setSortBy("category")} className={`mr-2 px-4 py-2 ${sortBy === "category" ? "bg-orange-500 text-white" : "bg-orange-700 text-white"}`}>Category</button>
       </div>
       <ul>
         {sortedItems.map((item) => (
