@@ -19,8 +19,8 @@ const NewItem = ({onAddItem}) =>{
 
     return(
         <form onSubmit={handleSubmit}>
-            <div>
-                <label></label>
+            {/* <div>
+                <label>Name</label>
                 <input required type="text" onchange={(event) => setName(event.target.value)} value={name}/>
             </div>
             <div>
@@ -43,7 +43,7 @@ const NewItem = ({onAddItem}) =>{
                     <option value="Other">Other</option>
                 </select>
             </div>
-            <button>+</button>
+            <button>+</button> */}
         </form>
 
     );

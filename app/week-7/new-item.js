@@ -1,7 +1,17 @@
 "use client";
+
 import { useState } from "react";
 
-export default function NewItem(){
+const generateId = (length = 18) => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  };
+
+const NewItem = ({onAddItem}) =>{
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [category, setCategory] = useState("Produce");
@@ -9,12 +19,8 @@ export default function NewItem(){
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        const item = {name, quantity, category};
-        console.log(item);
-
-        alert(`Name: ${name}
-        \nQuantity: ${quantity} 
-        \nCategory: ${category}`);
+        const item = {id: generateId(), name, quantity, category};
+        onAddItem(item);
 
         setName("");
         setQuantity(1);
@@ -22,14 +28,14 @@ export default function NewItem(){
     };
 
     return(
-        <form onSubmit={handleSubmit}className="p-4 bg-slate-900 text-black rounded mb-6">
+        <form onSubmit={handleSubmit} className="p-4 bg-slate-900 text-black rounded mb-6">
             <div>
                 <label className="block mb-0">Name</label>
-                <input className="w-96 h-10 p-2 rounded text-black" required type="text" onChange={(event) => setName(event.target.value)} value={name}/>
+                <input className="w-96 h-10 p-2 rounded text-black" required type="text" onChange={(event) => setName(event.target.value)} value={name} placeholder="Item name"/>                
             </div>
             <div>
                 <label className="block mb-0">Quantity</label>
-                <input className="w-96 h-10 p-2 rounded" required type="number" onChange={(event) => setQuantity(event.target.value)} min="1" max="99" value={quantity}/>
+                <input className="w-96 h-10 p-2 rounded" required type="number" onChange={(event) => setQuantity(event.target.value)} min="1" max="99"/>
             </div>
             <div className="mb-6">
                 <label className="block mb-0">Category</label>
@@ -47,8 +53,12 @@ export default function NewItem(){
                     <option value="Other">Other</option>
                 </select>
             </div>
-            <button className="w-96 h-10 flex justify-center items-center rounded-md bg-blue-600 hover:bg-blue-500 text-white">+</button>
+            <div>
+                <button className="w-96 h-10 flex justify-center items-center rounded-md bg-blue-600 hover:bg-blue-500 text-white">+</button>
+            </div>
         </form>
 
     );
-}
+};
+
+export default NewItem;
