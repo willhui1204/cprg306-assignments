@@ -29,16 +29,13 @@ const NewItem = ({onAddItem}) =>{
 
     return(
         <form onSubmit={handleSubmit} className="p-4 bg-slate-900 text-black rounded mb-6">
-            <div>
-                <label className="block mb-0">Name</label>
+            <div className="mb-6">
                 <input className="w-96 h-10 p-2 rounded text-black" required type="text" onChange={(event) => setName(event.target.value)} value={name} placeholder="Item name"/>                
             </div>
-            <div>
-                <label className="block mb-0">Quantity</label>
-                <input className="w-96 h-10 p-2 rounded" required type="number" onChange={(event) => setQuantity(event.target.value)} min="1" max="99"/>
+            <div className="mb-6">
+                <input className="w-96 h-10 p-2 rounded" required type="number" onChange={(event) => setQuantity(event.target.value)} min="1" max="99" value={quantity}/>
             </div>
             <div className="mb-6">
-                <label className="block mb-0">Category</label>
                 <select className="w-96 h-10 p-2 rounded" onChange={(event) => setCategory(event.target.value)} value={category}>
                     <option value="Produce">Produce</option>
                     <option value="Dairy">Dairy</option>

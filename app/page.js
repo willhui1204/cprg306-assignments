@@ -25,6 +25,9 @@ export default function Home() {
         <p className="text-lg">
           <Link href="./week-7/">Week 7 Assignment</Link>
         </p>
+        <p className="text-lg">
+          <Link href="./week-8/">test</Link>
+        </p>
       </div>
     </div>
   );
