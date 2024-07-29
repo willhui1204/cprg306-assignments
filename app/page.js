@@ -26,7 +26,7 @@ export default function Home() {
           <Link href="./week-7/">Week 7 Assignment</Link>
         </p>
         <p className="text-lg">
-          <Link href="./week-8/">test</Link>
+          <Link href="./week-8/">Week 8 Assignment</Link>
         </p>
       </div>
     </div>
