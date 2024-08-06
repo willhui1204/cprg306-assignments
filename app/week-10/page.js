@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 
 import { useUserAuth } from "./_utils/auth-context";
@@ -8,20 +9,6 @@ export default function Page() {
     
     console.log(user);
 
-    // return (
-    //     <div>
-    //         <h1>Week 8</h1>
-    //         <p>Welcome, {user.displayName} ({user.email})</p>
-    //         {user && user.displayName}
-    //         <p>
-    //             {user ? (
-    //                 <button onClick={firebaseSignOut}>Sign Out</button>
-    //             ) : (
-    //                 <button onClick={gitHubSignIn}>Sign In with GitHub</button>
-    //             )}
-    //         </p>
-    //     </div>
-    // );
     return(
         <main className="bg-black min-h-screen">
         <div className="bg-black rounded-lg">
@@ -31,7 +18,7 @@ export default function Page() {
             {user && user.displayName}
             <p className="p-2"></p>
 
-            <a className="text-lg hover:underline text-white" href="/week-8/shopping-list">{user ? "Continue to your Shopping List" : ""}</a>
+            <a className="text-lg hover:underline text-white" href="/week-10/shopping-list">{user ? "Continue to your Shopping List" : ""}</a>
             
             <p className="p-4">
                 {user ? (<button className="mr-2 px-4 py-2 rounded  bg-blue-600 text-white" onClick={firebaseSignOut}>Sign Out</button>) 
