@@ -8,7 +8,20 @@ export default function Page() {
     
     console.log(user);
 
-    
+    // return (
+    //     <div>
+    //         <h1>Week 8</h1>
+    //         <p>Welcome, {user.displayName} ({user.email})</p>
+    //         {user && user.displayName}
+    //         <p>
+    //             {user ? (
+    //                 <button onClick={firebaseSignOut}>Sign Out</button>
+    //             ) : (
+    //                 <button onClick={gitHubSignIn}>Sign In with GitHub</button>
+    //             )}
+    //         </p>
+    //     </div>
+    // );
     return(
         <main className="bg-black min-h-screen">
         <div className="bg-black rounded-lg">
